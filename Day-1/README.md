@@ -18,18 +18,18 @@
     4. Run the HTML file in the browser and check:
        The console log prints the text.
        The document.write() outputs text on the webpage.
-  https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-2.png
+
+  <img src="task-2.png" alt="task2"/>
+
        
 ✅ Task 3: Experiment with Different JavaScript Loading Methods
         Add the script in <head>, end of the <body> tag.
         Use async and defer attributes
         Understand the difefrences.
 
- https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-3.png
- 
- https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-3.1.png
-
- https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/body.png
+ <img src="task-3.png" alt="task 3"/>
+  <img src="task-3.1.png" alt="task 3"/>
+   <img src="body.png" alt="task 3"/>
 
         
 ✅ Task 4: Take Notes and Submit
