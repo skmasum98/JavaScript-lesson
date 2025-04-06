@@ -1,4 +1,5 @@
 👩‍💻 🧑‍💻 Assignment Tasks
+
 ✅ Task 1: Setting Up Your Environment
         Install VS Code (if not installed).
         Set up Live Server or open the HTML file directly in a browser.
@@ -17,10 +18,19 @@
     4. Run the HTML file in the browser and check:
        The console log prints the text.
        The document.write() outputs text on the webpage.
+  https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-2.png
+       
 ✅ Task 3: Experiment with Different JavaScript Loading Methods
         Add the script in <head>, end of the <body> tag.
         Use async and defer attributes
         Understand the difefrences.
+
+ https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-3.png
+ 
+ https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/task-3.1.png
+
+ https://raw.githubusercontent.com/skmasum98/JavaScript-lesson/refs/heads/main/Day-1/body.png
+
+        
 ✅ Task 4: Take Notes and Submit
-        Hope you have captured a good notes of your learning.
-        On the Discord, you will find 40 Days of JavaScript. Please post about your task completion(github repo, screenshots, all) in the task-assignments channel.
+        
