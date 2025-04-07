@@ -44,11 +44,14 @@ let rate = 150; // Rate per unit
 let bill = units * days * rate; // Total bill calculation
 
 let discount = 0.2; 
-let yearlyBill = bill * 12 * discount; // Yearly bill calculation
+let yearlyDiscount = (bill * 12) * discount; 
+let yearlyBill = (bill * 12) - yearlyDiscount; // Yearly bill calculation
 
 
 console.log(`Monthly bill for ${units} units consumed in ${days} days is ${bill} rupees.`);
 console.log(`Yearly bill is ${yearlyBill} rupees.`);
+
+
 
 // Task 6. Leap Year Checker
 console.log('Task 6. Leap Year Checker')
