@@ -1,4 +1,3 @@
-
 ## Task 1. odd or even
 
 	let number = 501; 
@@ -113,4 +112,6 @@
 
 **Result:**
 	Double of 5 is 10.
+
+Notes: https://www.notion.so/Day-3-1cd90af1268c81c79a31ded89fab7f4b?pvs=4
   
