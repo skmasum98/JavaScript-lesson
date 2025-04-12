@@ -67,4 +67,12 @@
         for	        At the top	Before each loop	Only if condition is true	Known number of iterations
         while        Before loop	Before each loop	Only if condition is true	Unknown number of iterations
         do-while	Before loop	After each loop	        At least once guaranteed	Run at least once, then check
+## For Loops Flow Chart
+<img src="for-loops.png" alt="For Loops">
+
+## While Loops Flow Chart
+<img src="while-loops.png" alt="While Loops">
+
+## DO While Loops Flow Chart
+<img src="do-while-loops.png" alt="Do While Loops">
 
