@@ -158,3 +158,5 @@
 
     Starting f2 from global // Starting f3 from global // f1 is called by f3 // after complete f3 return to f3 done // f1 is called from global"
 <img src="10.png" alt="Diagram">
+
+## Tracker Note: https://www.notion.so/Day-6-Function-1cd90af1268c814aa0a6dceaf2fe6efe?pvs=4
