@@ -44,7 +44,7 @@ JavaScript-এ যখন কোনো ভ্যারিয়েবল var দি�
         a = 10;
 
 ##### let বা const দিয়ে করলে:
-        console.log(b); // ❌ ReferenceError
+        console.log(b); //  ReferenceError
         let b = 20;
 
 কারণ b TDZ (Temporal Dead Zone)-এ থাকে ডিক্লেয়ার না হওয়া পর্যন্ত।
@@ -63,12 +63,12 @@ sayHello() উপরের দিকেই হোইস্ট হয়ে গে�
 
  ##### কিন্তু Function Expression বা Arrow Function হলে?
 
-        greet(); // ❌ TypeError: greet is not a function
+        greet(); //  TypeError: greet is not a function
 
         var greet = function () {
         console.log("Hi there!");
         };
 
-এখানে greet হোইস্ট হয়, কিন্তু তার ভ্যালু (function) পরে অ্যাসাইন হয় as a variable, greet is not function, function is vallue of greet
+এখানে greet হোইস্ট হয়, কিন্তু তার ভ্যালু (function) পরে অ্যাসাইন হয় as a variable, greet is not function, function is value of greet
 
 তাই আগে কল করলে greet হবে undefined, আর undefined() করলে হয় TypeError
