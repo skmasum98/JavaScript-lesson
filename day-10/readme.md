@@ -132,7 +132,7 @@ output is : Hi
 
 
 ## 9. What will be the output and why?
-        ```js
+```js
         let x = "Global";
 
         function outer() {
@@ -147,7 +147,7 @@ output is : Hi
         }
 
         outer();
-        ```
+```
 <b>"When code executes, it finds the nearest variable"</b>
 
 ## 10. What will be the output and why?
