@@ -86,8 +86,8 @@
 
 ## 6. What will be the output and why?
 
-console.log(a); 
-let a = 10; // a declared in TDZ
+        console.log(a); 
+        let a = 10; // a declared in TDZ
 
 
 // Uncaught ReferenceError: Cannot access 'a' before initialization
@@ -107,7 +107,7 @@ The variable age is only accessible inside the showAge() function block.
 
 Options:
 - A: In Global
-<b>- B: Only inside showAge></b>
+- <b>B: Only inside showAge></b>
 - C: It will cause an error
 - D: None of the above
 
@@ -132,40 +132,42 @@ output is : Hi
 
 
 ## 9. What will be the output and why?
-```js
-let x = "Global";
+        ```js
+        let x = "Global";
 
-function outer() {
-    let x = "Outer";
+        function outer() {
+            let x = "Outer";
 
-    function inner() {
-        let x = "Inner";
-        console.log(x);
-    }
+            function inner() {
+                let x = "Inner";
+                console.log(x);
+            }
 
-    inner();
-}
+            inner();
+        }
 
-outer();
-```
+        outer();
+        ```
 <b>"When code executes, it finds the nearest variable"</b>
 
 ## 10. What will be the output and why?
 
-function counter() {
-    let count = 0;
-    return function () {
-        count--;
-        console.log(count);
-    };
-}
+        function counter() {
+            let count = 0;
+            return function () {
+                count--;
+                console.log(count);
+            };
+        }
 
-const reduce = counter();
-reduce();
-reduce();
+        const reduce = counter();
+        reduce();
+        reduce();
 
 answer 
+
         -1
         -2
+
 why?
 Because the inner function forms a closure over the count variable from the counter() function, and each call to reduce() modifies the same count
