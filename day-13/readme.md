@@ -157,12 +157,14 @@
 
             user.greet(); //Output: Hello, !
 
- The problem here is that the inner function does not have its own 'this' context.
+
+The problem here is that the inner function does not have its own 'this' context.
  When we call inner(), 'this' refers to the global object (or undefined in strict mode), not the user object.
  As a result, 'this.name' is undefined.
 
 
- To fix this, we can use an arrow function for inner(), which will lexically bind 'this' to the surrounding context (the user object).
+To fix this, we can use an arrow function for inner(), which will lexically bind 'this' to the surrounding context (the user object).
+
         const fixUserser = {
             name: "Alex",
             greet: function () {
