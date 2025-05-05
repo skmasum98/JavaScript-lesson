@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The "this" keyword</title>
+
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <h1><u>Day 13</u> of "40 Days of JavaScript!"</h1>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Situation</th>
+            <th>Value of <code>this</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. At the Global</td>
+            <td><code>window</code> (in the browser) or <code>global</code> (in Node.js)</td>
+          </tr>
+          <tr>
+            <td>2. Inside an Object Method</td>
+            <td>The object itself</td>
+          </tr>
+          <tr>
+            <td>3. Inside a Standalone Non-Arrow Function</td>
+            <td><code>window</code> (in the browser) or <code>global</code> (in Node.js)</td>
+          </tr>
+          <tr>
+            <td>4. Inside an Arrow Function (Standalone)</td>
+            <td>Lexical <code>this</code> (from the surrounding context)</td>
+          </tr>
+          <tr>
+            <td>5. Inside an Arrow Function (as Object Method)</td>
+            <td>Lexical <code>this</code> (from the surrounding context)</td>
+          </tr>
+          <tr>
+            <td>6. Inside an Object Created with Constructor Function</td>
+            <td>The object created by the constructor</td>
+          </tr>
+        </tbody>
+      </table>
+      
+</body>
+</html>
