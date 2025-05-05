@@ -476,4 +476,5 @@ Debug বা logging সহজ হয়।
 🟢 Output:
 
         ValidationError: You are not a senior citizen
-        এখন ValidationError পুরোপুরি Error এর মতোই behave করবে।
+
+এখন ValidationError পুরোপুরি Error এর মতোই behave করবে।
