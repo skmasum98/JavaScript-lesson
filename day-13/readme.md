@@ -211,22 +211,27 @@ To fix this, we can use an arrow function for inner(), which will lexically bind
         car1.describe(); // Output: This car is a Audi A8.
 
 Solution 1: Using call()
+
         car1.describe.call(car2); // Output: This car is a BMW X1.
 
 Solution 2: Using apply()
+
         car1.describe.apply(car2); // Output: This car is a BMW X1.
 
 Solution 3: Using bind()
+
         const describeCar2 = car1.describe.bind(car2);
         describeCar2(); // Output: This car is a BMW X1.
 
 Solution 4: Assigning the method directly
+
         car2.describe = car1.describe;
         car2.describe(); // Output: This car is a BMW X1.
 
 
 
 ## 7. What will be the output of the following code and why?
+
         const person = {
         name: "Charlie",
         sayHello: function () {
