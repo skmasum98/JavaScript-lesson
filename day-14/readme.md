@@ -152,10 +152,4 @@ console.log(user.name); // user হলো undefined
 
 **ব্যাখ্যা:** কোড parse হয়েছে, কিন্তু চালানোর সময় সমস্যা — তাই runtime error।
 
----
 
-> ✅ আপনি এই নোটটি JavaScript শিখতে বা শেখাতে Reference হিসেবে ব্যবহার করতে পারেন।
-
----
-
-Let me know if you'd like a downloadable PDF or visual infographic for this!
