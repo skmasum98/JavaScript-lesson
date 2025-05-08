@@ -228,12 +228,13 @@ index.js:35 Error: Insufficient balance.
 ```
 
 **Output: 1**
-File not found: File format not supported. Only .txt files are allowed.
-File read operation completed.
+* File not found: File format not supported. Only .txt files are allowed.
+* File read operation completed.
 
 **Output: 2**
-Reading file: document.txt successfully.
-File read operation completed.
+* Reading file: document.txt successfully.
+* File read operation completed.
+
 ---
 ### 7. Write a function parseJson(str) that takes a JSON string and tries to parse it using JSON.parse().  If parsing fails, catch the error and return "Invalid JSON"
 ```
