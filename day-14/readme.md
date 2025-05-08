@@ -200,7 +200,7 @@ index.js:35 Error: Insufficient balance.
 -Username is required.
 -User input is valid.
 
-
+---
 ### 6.Write a function readFile(filePath) that simulates reading a file. If the file does not exist (simulate with a condition), throw a "File not found" error. Handle the error with try...catch. Make sure you have code to handle releasing the IO resources
 ```
         function readFile(filePath) {
@@ -234,7 +234,7 @@ File read operation completed.
 **Output: 2**
 Reading file: document.txt successfully.
 File read operation completed.
-
+---
 ### 7. Write a function parseJson(str) that takes a JSON string and tries to parse it using JSON.parse().  If parsing fails, catch the error and return "Invalid JSON"
 ```
 function parseJson(str) {
@@ -265,20 +265,22 @@ console.log(parseJson('{name: "Masum"}'));
 
 * JSON parsing operation completed.
 * Invalid JSON
-
+---
 ### 8. What is the purpose of throw in JavaScript?
 
 - It catches an error
 - It stops the execution of a program
 - **It creates a new error manually**✅
 - It prints an error message
-
+---
 ### 9. What does the finally block do in a try...catch statement?
 
 - Runs only if an error occurs
 - Runs only if no error occurs
 - **Runs regardless of whether an error occurs or not**✅
 - Stops the execution of the script
+
+---
 
 ### 10. Create a table exaplaining the usages of try, catch, throw, rethrow, error object
 
@@ -289,3 +291,7 @@ console.log(parseJson('{name: "Masum"}'));
 | `throw`               | Manually creates & throws an error      | `throw new Error("Invalid input"); `      | নিজে থেকে এরর তৈরি করে ছুঁড়ে দেয়, যেন সেটি `catch` দ্বারা ধরা যায়।                    |
 | `rethrow`             | Throws error again after catching it    | `catch (e) { if (!e.handled) throw e; } ` | এরর `catch` করার পর আবার `throw` করে দেয়, যদি চাই না এখানেই হ্যান্ডল হোক।             |
 | `Error` object        | Built-in object for creating errors     | `new Error("Something went wrong") `      | এর মাধ্যমে কাস্টম এরর তৈরি করা যায়, যেমন `Error`, `TypeError`, `SyntaxError` ইত্যাদি। |
+
+
+---
+---
