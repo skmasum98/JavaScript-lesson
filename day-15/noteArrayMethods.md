@@ -1218,6 +1218,3 @@ console.log(fruits); // ['🍎', '🍌', '🍇']
 | `Array-like`        | Objects with `length` but not full array features |
 
 ---
-
-
-## hello test
