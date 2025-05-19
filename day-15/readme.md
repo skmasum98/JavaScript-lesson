@@ -290,23 +290,208 @@ console.log(string4); // "apple,banana,cherry"
   ```
 
 ### **T-021**: Can you filter employees who work in the "Engineering" department?
+
+```js
+const engineeringEmployees = employees.filter(employee => employee.departmentId === 2);
+console.log(engineeringEmployees); 
+```
+ [{ id: 2, name: "Bob", departmentId: 2, salary: 7000 }, { id: 5, name: "Edward", departmentId: 2, salary: 8000 }, { id: 9, name: "Ian", departmentId: 2, salary: 4800 }]
+
+
+
 ### **T-022**: Create a new array that combines employee names and department names in the format: "Alice (HR)".
+```js
+const combinedArray = employees.map(employee => {
+    const department = departments.find(dept => dept.id === employee.departmentId);
+    return `${employee.name} (${department.name})`;
+});
+console.log(combinedArray); 
+```
+["Alice (HR)", "Bob (Engineering)", "Charlie (Marketing)", "Diana (HR)", "Edward (Engineering)", "Fiona (Sales)", "George (Marketing)", "Helen (Sales)", "Ian (Engineering)", "Jane (HR)"]  
+
+
 ### **T-023**: Find the highest salary among employees.
+
+```js
+const highestSalary = Math.max(...employees.map(employee => employee.salary));
+console.log(highestSalary); // 8000
+```
+
+
 ### **T-024**: Check if there is at least one employee in the "Sales" department.
+
+```js
+const hasSalesEmployee = employees.some(employee => employee.departmentId === 4);
+console.log(hasSalesEmployee); // true
+```
+
+
+
+
 ### **T-025**: Write a function to filter employees earning more than 6000.
+
+```js
+const highSalaryEmployees = employees.filter(employee => employee.salary > 6000);
+console.log(highSalaryEmployees); 
+```
+[{ id: 2, name: "Bob", departmentId: 2, salary: 7000 }, { id: 5, name: "Edward", departmentId: 2, salary: 8000 }, { id: 8, name: "Helen", departmentId: 4, salary: 7200 }]
+
+
 ### **T-026**: Create an array of employee names only.
+
+```js
+const employeeNames = employees.map(employee => employee.name);
+console.log(employeeNames); 
+```
+["Alice", "Bob", "Charlie", "Diana", "Edward", "Fiona", "George", "Helen", "Ian", "Jane"]
+
+
+
 ### **T-027**: Calculate the total salary of all employees using
+
+```js
+const totalSalary = employees.reduce((acc, employee) => acc + employee.salary, 0);
+console.log(totalSalary); 
+```
+
+5000 + 7000 + 4500 + 5500 + 8000 + 6000 + 5200 + 7200 + 4800 + 5100 =  50000
+
+
+
+
 ### **T-028**: Is there any employee earning less than 5000?
+
+```js
+const hasLowSalaryEmployee = employees.some(employee => employee.salary < 5000);
+console.log(hasLowSalaryEmployee); // true
+```
+
+
 ### **T-029**: Find the first employee who earns exactly 5100.
+
+```js
+const firstEmployeeWithSalary5100 = employees.find(employee => employee.salary === 5100);
+console.log(firstEmployeeWithSalary5100); 
+```
+{ id: 10, name: "Jane", departmentId: 1, salary: 5100 }
+
+
+
+
 ### **T-030**: Find the last employee in the "HR" department.
+
+```js
+//findLast() medthod 
+const lastHREmployee = employees.findLast(employee => employee.departmentId === 1);
+console.log(lastHREmployee); 
+```
+{ id: 10, name: "Jane", departmentId: 1, salary: 5100 }
+
+
+
 ### **T-031**: Find the first employee in the "Marketing" department.
+
+```js
+const firstMarketingEmployee = employees.find(employee => employee.departmentId === 3);
+console.log(firstMarketingEmployee); 
+```
+{ id: 3, name: "Charlie", departmentId: 3, salary: 4500 }
+
+
+
 ### **T-032**: Check if all employees earn more than 4000.
+
+```js
+const allEmployeesEarnMoreThan4000 = employees.every(employee => employee.salary > 4000);
+console.log(allEmployeesEarnMoreThan4000); // true
+```
+
+
+
 ### **T-033**: Find the first employee in the "Sales" and "HR" department.
+
+```js
+const firstSalesOrHREmployee = employees.find(employee => employee.departmentId === 4 || employee.departmentId === 1);
+console.log(firstSalesOrHREmployee); 
+```
+{ id: 1, name: "Alice", departmentId: 1, salary: 5000 }
+
+
 ### **T-034**: Verify if all employees belong to a department listed in the departments array.
+
+```js
+const allEmployeesInDepartments = employees.every(employee => departments.some(department => department.id === employee.departmentId));
+console.log(allEmployeesInDepartments); // true
+```
+
 ### **T-035**: Log each employee's name and department name to the console.
+
+```js
+employees.forEach(employee => {
+    const department = departments.find(dept => dept.id === employee.departmentId);
+    console.log(`${employee.name} works in ${department.name}`);
+});
+```
+// Alice works in HR
+// Bob works in Engineering
+// Charlie works in Marketing
+// Diana works in HR
+// Edward works in Engineering
+// Fiona works in Sales
+// George works in Marketing
+// Helen works in Sales
+// Ian works in Engineering
+// Jane works in HR
+
 ### **T-036**: Extract all employee names into a single array.
+
+```js
+const allEmployeeNames = employees.map(employee => employee.name);
+console.log(allEmployeeNames); 
+```
+["Alice", "Bob", "Charlie", "Diana", "Edward", "Fiona", "George", "Helen", "Ian", "Jane"]
+
+
 ### **T-037**: Increment each employee's salary by 10%
+
+```js
+const updatedSalaries = employees.map(employee => ({
+    ...employee,
+    salary: employee.salary * 1.1
+}));
+console.log(updatedSalaries); 
+```
+Output:
+
+```js
+[{ id: 1, name: "Alice", departmentId: 1, salary: 5500 }, 
+{ id: 2, name: "Bob", departmentId: 2, salary: 7700 }, 
+{ id: 3, name: "Charlie", departmentId: 3, salary: 4950 }, 
+{ id: 4, name: "Diana", departmentId: 1, salary: 6050 }, 
+{ id: 5, name: "Edward", departmentId: 2, salary: 8800 }, 
+{ id: 6, name: "Fiona", departmentId: 4, salary: 6600 }, 
+{ id: 7, name: "George", departmentId: 3, salary: 5720 }, 
+{ id: 8, name: "Helen", departmentId: 4, salary: 7920 }, 
+{ id: 9, name: "Ian", departmentId: 2, salary: 5280 }, 
+{ id: 10, name: "Jane", departmentId: 1, salary: 5610 }]
+```
+
+
 ### **T-038**: Assume each employee can have multiple skills. Create an array of employee skills and flatten them. Example: [{name: "Alice", skills: ["Excel", "Management"]}, ...].
+
+```js
+const employeesWithSkills = [
+    { name: "Alice", skills: ["Excel", "Management"] },
+    { name: "Bob", skills: ["JavaScript", "React"] },
+    { name: "Charlie", skills: ["Marketing", "Sales"] },
+];
+const allSkills = employeesWithSkills.flatMap(employee => employee.skills);
+console.log(allSkills); 
+```
+["Excel", "Management", "JavaScript", "React", "Marketing", "Sales"]
+
+
+
 ### **T-039**: Find the total salary of all employees working in the "Engineering" department.
 ### **T-040**: Check if there is any department where all employees earn more than 5000.
 ### **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
