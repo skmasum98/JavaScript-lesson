@@ -55,21 +55,209 @@ console.log(literalsArray); // [ "a", "b", "c", "d", "e", "f" ]
 
 ### **T-007**: Create an array containing the name of your favourite foods(10 foods). Destructure the 6th food element from the array using destructuring.
 
+```
+const foods = ["Pizza", "Burger", "Pasta", "Salad", "Sushi", "Tacos", "Ice Cream", "Chocolate", "Cookies", "Brownies"];
+const [,, , , , sixthFood] = foods;
+console.log(sixthFood); // Tacos
+console.log(foods); 
+
+// [ "Pizza", "Burger", "Pasta", "Salad", "Sushi", "Tacos", "Ice Cream", "Chocolate", "Cookies", "Brownies" ]
+```
+
+
 
 
 ### **T-008**: Take out the last 8 food items from the above array using the Array destructuring. Hint: rest parameter.
-### **T-009**: Clone an Array(Shallow cloning)
-### **T-010**: Empty an array using its length property
-### **T-011**: Create an array of 10 elements(number 1 to 10). Resize the array to length 6 once you find the number 5 in that array. Hint: Use `for-loop`.
+    const [firstFood, secondFood, ...restFoods] = foods;
+
+    console.log(...restFoods); // [ "Pasta", "Salad", "Sushi", "Tacos", "Ice Cream", "Chocolate", "Cookies", "Brownies" ]
+
+###  **T-009**: Clone an Array(Shallow cloning)
+
+    const clonedArray = [...foods];
+    console.log(clonedArray); // [ "Pizza", "Burger", "Pasta", "Salad", "Sushi", "Tacos", "Ice Cream", "Chocolate", "Cookies", "Brownies" ]
+
+
+###  **T-010**: Empty an array using its length property
+
+    const emptyArray2 = [...foods];
+    emptyArray2.length = 0; // Empty the array
+    console.log(emptyArray2); // []
+
+
+###  **T-011**: Create an array of 10 elements(number 1 to 10). Resize the array to length 6 once you find the number 5 in that array. Hint: Use `for-loop`.
+```
+      const numbers = new Array (10)
+      for (let i = 0; i < numbers.length; i++) {
+          numbers[i] = i + 1; // Fill the array with numbers 1 to 10
+      }
+
+      console.log(numbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+```
+      for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] === 5) {
+              numbers.length = 6; // Resize the array to length 6
+              break;
+          }
+      }
+      console.log(numbers); // [1, 2, 3, 4, 5, 6]
+```
+
 ### **T-012**: Create an Array of 10 elements. Use the `splice()` method to empty the array.
-### **T-013**: Create an Array of 10 elements. You can empty the array in multiple ways: using the `length` property, using the `pop()` method, using the `shift()` method, setting the array with `[]`, or the `splice()` method. Which among these methods are most efficient and why?
-### **T-014**: What happens when you concatenate two empty arrays?
-### **T-015**: How can you check if a value is partially matching with any of the elements of an Array?
+```
+const fruits = ['🍎', '🍌', '🍇', '🍉', '🍒', '🍓', '🍍', '🥭', '🍑', '🍊'];
+
+fruits.splice(0, fruits.length); // Empty the array using splice
+console.log(fruits); // []
+```
+
+
+### **T-013**: Create an Array of 10 elements. You can empty the array in multiple ways: using the `length`  property, using the `pop()` method, using the `shift()` method, setting the array with `[]`,  or the `splice()` method. Which among these methods are most efficient and why?
+
+```
+const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// 1. Using length property
+numbers2.length = 0; // Empty the array using length property
+console.log(numbers2); // []
+
+// 2. Using pop() method
+const numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+while (numbers3.length > 0) {
+    numbers3.pop(); // Remove the last element
+}
+console.log(numbers3); // []
+
+
+// 3. Using shift() method
+const numbers4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+while (numbers4.length > 0) {
+    numbers4.shift(); // Remove the first element
+}
+console.log(numbers4); // []
+
+
+// 4. Setting the array with []
+// const numbers5 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// numbers5 = []; // Empty the array by reassigning it to an empty array
+// console.log(numbers5); // []
+// Note: This will throw an error because numbers5 is a constant variable.
+
+
+// 5. Using splice() method
+const numbers6 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+numbers6.splice(0, numbers6.length); // Empty the array using splice
+console.log(numbers6); // []
+```
+
+**Using Array.prototype.length = 0 is the most efficient way to empty an array because it directly modifies the length property of the array.**
+
+
+###  **T-014**: What happens when you concatenate two empty arrays?
+```
+const arr1 = [];
+const arr2 = [];
+const result = arr1.concat(arr2);
+
+console.log(result);
+```
+
+
+###  **T-015**: How can you check if a value is partially matching with any of the elements of an Array?
+
+```
+const array = ["apple", "banana", "cherry", "date"];
+const searchValue = "an";
+
+const matching = array.filter(item => item.includes(searchValue));
+
+console.log(matching);
+```
+
 ### **T-016**: What is the difference between the slice() and splice() methods?
+
+```
+const array = [1, 2, 3, 4, 5];
+const slicedArray = array.slice(1, 4); // [2, 3, 4]
+
+const splicedArray = array.splice(1, 2); // [2, 3]
+console.log(slicedArray); // [2, 3, 4]
+console.log(array); // [1, 4, 5]
+
+```
+
+The original array is modified by splice, but slice returns a new array without modifying the original.
+
+
 ### **T-017**: Create an Array of alphanumeric strings. Sort the elements in both ascending and descending orders. You must be doing this in an immutable way such that the source array never gets modified.
+
+```
+const alphanumericArray = ["a1", "b2", "c3", "d4", "e5"];
+const sortedAscending = alphanumericArray.slice().sort(); // Ascending order
+const sortedDescending = alphanumericArray.slice().sort().reverse(); // Descending order
+console.log(sortedAscending); // [ "a1", "b2", "c3", "d4", "e5" ]
+console.log(sortedDescending); // [ "e5", "d4", "c3", "b2", "a1" ]
+```
+
+
 ### **T-018**: Can you give examples of sparse and dense arrays?
+
+```
+// Sparse Array
+const sparseArray = [1, , 3, , 5]; // Contains empty slots
+console.log(sparseArray); // [ 1, <1 empty item>, 3, <1 empty item>, 5 ]
+// Dense Array
+const denseArray = [1, 2, 3, 4, 5]; // No empty slots
+console.log(denseArray); // [ 1, 2, 3, 4, 5 ]
+```
+
+
+
 ### **T-019**: Give a practical usages of the .fill() method
+
+```
+const filledArray = new Array(5).fill(1); 
+console.log(filledArray); // [ 1, 1, 1, 1, 1 ]
+
+// Creates an array of length 5 filled with 1
+
+const filledArray2 = new Array(5).fill(0).map((_, index) => index + 1); 
+console.log(filledArray2); // [ 1, 2, 3, 4, 5 ]
+
+// Creates an array of length 5 filled with numbers from 1 to 5
+```
+
+
+
+
+
 ### **T-020**: How to convert an array to a string?
+
+```js
+// Using join() method  
+const array = ["apple", "banana", "cherry"];
+const string = array.join(", "); // Converts the array to a string
+console.log(string); // "apple, banana, cherry"
+
+
+// Using toString() method
+const array2 = ["apple", "banana", "cherry"];
+const string2 = array2.toString(); // Converts the array to a string
+console.log(string2); // "apple,banana,cherry"
+
+
+// Using JSON.stringify()
+const array3 = ["apple", "banana", "cherry"];
+const string3 = JSON.stringify(array3); // Converts the array to a JSON string
+console.log(string3); // "["apple","banana","cherry"]"
+
+// Using String() constructor
+const array4 = ["apple", "banana", "cherry"];
+const string4 = String(array4); // Converts the array to a string
+console.log(string4); // "apple,banana,cherry"
+```
+
 
 > Consider these input arrays for question **T-21** to **T-48**
 
