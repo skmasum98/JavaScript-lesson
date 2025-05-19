@@ -1218,3 +1218,268 @@ console.log(fruits); // ['🍎', '🍌', '🍇']
 | `Array-like`        | Objects with `length` but not full array features |
 
 ---
+
+
+
+
+## ✅ **JavaScript Array Iterator Methods** 
+---
+
+— এই মেথডগুলো array-এর উপর লুপ চালিয়ে একাধিক কাজ সহজে করার জন্য ব্যবহার হয়।
+
+---
+
+### ✅ 1. `filter()`
+
+🔹 শর্ত অনুযায়ী matching element-গুলা রিটার্ন করে (new array দেয়)।
+
+```js
+const fruits = ['🍎', '🍌', '🍇', '🥦'];
+const longFruits = fruits.filter(fruit => fruit.length > 1);
+console.log(longFruits);
+```
+
+---
+
+### ✅ 2. `map()`
+
+🔹 প্রত্যেক element কে modify করে নতুন array তৈরি করে।
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+---
+
+### ✅ 3. `reduce()`
+
+🔹 সব element কে একত্রে reduce করে একটাই value তৈরি করে।
+
+```js
+const nums = [10, 20, 30];
+const total = nums.reduce((acc, cur) => acc + cur, 0);
+console.log(total); // 60
+```
+
+---
+
+### ✅ 4. `reduceRight()`
+
+🔹 ডান দিক থেকে শুরু করে reduce করে।
+
+```js
+const letters = ['a', 'b', 'c'];
+const result = letters.reduceRight((acc, cur) => acc + cur);
+console.log(result); // "cba"
+```
+
+---
+
+### ✅ 5. `some()`
+
+🔹 কোনো একটা element condition match করলে `true` দেয়।
+
+```js
+const hasEven = [1, 3, 4].some(num => num % 2 === 0);
+console.log(hasEven); // true
+```
+
+---
+
+### ✅ 6. `every()`
+
+🔹 সবগুলো element condition match করলে `true` দেয়।
+
+```js
+const allPositive = [2, 4, 6].every(num => num > 0);
+console.log(allPositive); // true
+```
+
+---
+
+### ✅ 7. `find()`
+
+🔹 প্রথম matching element return করে।
+
+```js
+const nums = [5, 7, 9, 10];
+const found = nums.find(num => num > 8);
+console.log(found); // 9
+```
+
+---
+
+### ✅ 8. `findIndex()`
+
+🔹 প্রথম matching element-এর index return করে।
+
+```js
+const index = nums.findIndex(num => num > 8);
+console.log(index); // 2
+```
+
+---
+
+### ✅ 9. `findLast()` *(ES2023)*
+
+🔹 শেষের দিক থেকে শুরু করে প্রথম matching element return করে।
+
+```js
+const nums = [2, 4, 6, 7, 9];
+console.log(nums.findLast(x => x % 2 !== 0)); // 9
+```
+
+---
+
+### ✅ 10. `findLastIndex()` *(ES2023)*
+
+🔹 শেষের দিক থেকে শুরু করে প্রথম matching index return করে।
+
+```js
+console.log(nums.findLastIndex(x => x % 2 !== 0)); // 4
+```
+
+---
+
+### ✅ 11. Array Method Chaining
+
+🔹 একাধিক method একসাথে use করা।
+
+```js
+const result = [1, 2, 3, 4, 5]
+  .filter(x => x % 2 === 0)
+  .map(x => x * 10);
+console.log(result); // [20, 40]
+```
+
+---
+
+### ✅ 12. `forEach()`
+
+🔹 লুপের মতো কাজ করে, return দেয় না।
+
+```js
+['🍕', '🍔', '🍟'].forEach((item, index) => {
+  console.log(`${index + 1}: ${item}`);
+});
+```
+
+---
+
+### ✅ 13. `entries()`
+
+🔹 index এবং value pair দেয়।
+
+```js
+const list = ['a', 'b', 'c'];
+for (let [index, value] of list.entries()) {
+  console.log(index, value);
+}
+```
+
+---
+
+### ✅ 14. `values()`
+
+🔹 শুধু values return করে (iterator আকারে)।
+
+```js
+const iter = ['x', 'y', 'z'].values();
+console.log(iter.next().value); // x
+```
+
+---
+
+### ✅ 15. `flatMap()`
+
+🔹 map() + flat() একসাথে।
+
+```js
+const nums = [1, 2, 3];
+const mapped = nums.flatMap(n => [n, n * 2]);
+console.log(mapped); // [1, 2, 2, 4, 3, 6]
+```
+
+---
+
+
+## **JavaScript-এর Immutability Array Methods** 
+
+— যেগুলো মূল Array পরিবর্তন না করেই নতুন Array রিটার্ন করে।
+👉 এগুলো হলো: `toReversed()`, `toSorted()`, `toSpliced()`, `with()`
+📌 ইমিউটেবল মানে হলো: **original array অপরিবর্তিত থাকে**।
+
+---
+
+### ✅ 1. `toReversed()`
+
+🔸 `.reverse()` এর মতো কিন্তু ইমিউটেবল (original array বদলায় না)।
+
+```js
+const nums = [1, 2, 3];
+const reversed = nums.toReversed();
+
+console.log(reversed); // [3, 2, 1]
+console.log(nums);     // [1, 2, 3]
+```
+
+---
+
+### ✅ 2. `toSorted()`
+
+🔸 `.sort()` এর মতো কিন্তু original array বদলায় না।
+
+```js
+const letters = ['d', 'c', 'b'];
+const sorted = letters.toSorted();
+
+console.log(sorted);  // ['b', 'c', 'd']
+console.log(letters); // ['d', 'c', 'b']
+```
+
+---
+
+### ✅ 3. `toSpliced(start, deleteCount, ...items)`
+
+🔸 `.splice()` এর মতো, কিন্তু original array অপরিবর্তিত থাকে।
+
+```js
+const fruits = ['🍎', '🍌', '🍇'];
+const newFruits = fruits.toSpliced(1, 1, '🥭');
+
+console.log(newFruits); // ['🍎', '🥭', '🍇']
+console.log(fruits);    // ['🍎', '🍌', '🍇']
+```
+
+---
+
+### ✅ 4. `with(index, value)`
+
+🔸 নির্দিষ্ট index-এ নতুন মান বসিয়ে একটি নতুন array রিটার্ন করে।
+
+```js
+const veggies = ['🥕', '🥒', '🌽'];
+const updated = veggies.with(1, '🍅');
+
+console.log(updated); // ['🥕', '🍅', '🌽']
+console.log(veggies); // ['🥕', '🥒', '🌽']
+```
+
+---
+
+### ✅ Summary Table:
+
+| Method         | Description                     | Mutates? |
+| -------------- | ------------------------------- | -------- |
+| `toReversed()` | Reverse without modifying array | ❌ No     |
+| `toSorted()`   | Sort without modifying array    | ❌ No     |
+| `toSpliced()`  | Splice-like but immutable       | ❌ No     |
+| `with()`       | Change value at index immutably | ❌ No     |
+
+---
+
+✳️ Immutability ensures your **original data stays safe**, making debugging and tracking state easier — especially useful in frameworks like **React**.
+
+---
