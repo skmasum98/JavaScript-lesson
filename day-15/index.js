@@ -213,6 +213,14 @@ console.log(matching);
 //  **T-037**: Increment each employee's salary by 10%
 //  **T-038**: Assume each employee can have multiple skills. Create an array of employee skills and flatten them. Example: [{name: "Alice", skills: ["Excel", "Management"]}, ...].
 //  **T-039**: Find the total salary of all employees working in the "Engineering" department.
+
+const engineeringTotalSalary = employees.filter(employee => employee.departmentId === 2)
+    return engineeringTotalSalary.reduce((acc, employee) => acc + employee.salary, 0);
+
+console.log(engineeringTotalSalary);
+
+
+
 //  **T-040**: Check if there is any department where all employees earn more than 5000.
 //  **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
 // Find the total number of unique projects being handled across all employees.
