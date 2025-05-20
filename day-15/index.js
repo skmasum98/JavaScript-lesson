@@ -168,31 +168,31 @@ console.log(matching);
 
 // - `employees array`: An array of emplyees working in a department.
 
-//   ```js
-//   const employees = [
-//     { id: 1, name: "Alice", departmentId: 1, salary: 5000 },
-//     { id: 2, name: "Bob", departmentId: 2, salary: 7000 },
-//     { id: 3, name: "Charlie", departmentId: 3, salary: 4500 },
-//     { id: 4, name: "Diana", departmentId: 1, salary: 5500 },
-//     { id: 5, name: "Edward", departmentId: 2, salary: 8000 },
-//     { id: 6, name: "Fiona", departmentId: 4, salary: 6000 },
-//     { id: 7, name: "George", departmentId: 3, salary: 5200 },
-//     { id: 8, name: "Helen", departmentId: 4, salary: 7200 },
-//     { id: 9, name: "Ian", departmentId: 2, salary: 4800 },
-//     { id: 10, name: "Jane", departmentId: 1, salary: 5100 },
-//   ];
-//   ```
+
+  const employees = [
+    { id: 1, name: "Alice", departmentId: 1, salary: 5000 },
+    { id: 2, name: "Bob", departmentId: 2, salary: 7000 },
+    { id: 3, name: "Charlie", departmentId: 3, salary: 4500 },
+    { id: 4, name: "Diana", departmentId: 1, salary: 5500 },
+    { id: 5, name: "Edward", departmentId: 2, salary: 8000 },
+    { id: 6, name: "Fiona", departmentId: 4, salary: 6000 },
+    { id: 7, name: "George", departmentId: 3, salary: 5200 },
+    { id: 8, name: "Helen", departmentId: 4, salary: 7200 },
+    { id: 9, name: "Ian", departmentId: 2, salary: 4800 },
+    { id: 10, name: "Jane", departmentId: 1, salary: 5100 },
+  ];
+
 
 // - `departments array`: An array of departments where emplyees work.
 
-//   ```js
-//   const departments = [
-//     { id: 1, name: "HR" },
-//     { id: 2, name: "Engineering" },
-//     { id: 3, name: "Marketing" },
-//     { id: 4, name: "Sales" },
-//   ];
-//   ```
+  const departments = [
+    { id: 1, name: "HR" },
+    { id: 2, name: "Engineering" },
+    { id: 3, name: "Marketing" },
+    { id: 4, name: "Sales" },
+  ];
+
+
 
 //  **T-021**: Can you filter employees who work in the "Engineering" department?
 //  **T-022**: Create a new array that combines employee names and department names in the format: "Alice (HR)".
@@ -214,17 +214,66 @@ console.log(matching);
 //  **T-038**: Assume each employee can have multiple skills. Create an array of employee skills and flatten them. Example: [{name: "Alice", skills: ["Excel", "Management"]}, ...].
 //  **T-039**: Find the total salary of all employees working in the "Engineering" department.
 
-const engineeringTotalSalary = employees.filter(employee => employee.departmentId === 2)
-    return engineeringTotalSalary.reduce((acc, employee) => acc + employee.salary, 0);
-
-console.log(engineeringTotalSalary);
 
 
 
 //  **T-040**: Check if there is any department where all employees earn more than 5000.
+const allDepartments = departments.map(department => {
+    const employeesInDepartment = employees.filter(employee => employee.departmentId === department.id);
+    const allEarnMoreThan5000 = employeesInDepartment.every(employee => employee.salary >= 5000);
+    return {
+        departmentName: department.name,
+        allEarnMoreThan5000: allEarnMoreThan5000
+    };
+});
+console.log(allDepartments); 
+// [{ departmentName: "HR", allEarnMoreThan5000: true }, 
+// { departmentName: "Engineering", allEarnMoreThan5000: false }, 
+// { departmentName: "Marketing", allEarnMoreThan5000: false }, 
+// { departmentName: "Sales", allEarnMoreThan5000: true }]
+
 //  **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
 // Find the total number of unique projects being handled across all employees.
+    //step 1 : push all projects into a single array and then use Set to get unique values
+    // step 2 : use the length property to get the number of unique projects
+    // step 3 : use the spread operator to convert the Set back to an array
+
+const employeesWithProjects = [
+    { id: 1, name: "Alice", projects: ["Project A", "Project B"] },
+    { id: 2, name: "Bob", projects: ["Project C"] },
+    { id: 3, name: "Charlie", projects: ["Project A", "Project D"] },
+    { id: 4, name: "Diana", projects: ["Project E"] },
+    { id: 5, name: "Edward", projects: ["Project F", "Project G"] },
+    { id: 6, name: "Fiona", projects: ["Project H"] },
+    { id: 7, name: "George", projects: ["Project I", "Project J"] },
+    { id: 8, name: "Helen", projects: ["Project K"] },
+    { id: 9, name: "Ian", projects: ["Project L"] },
+    { id: 10, name: "Jane", projects: ["Project M"] },
+    ];
+
+const allProjects = employeesWithProjects.flatMap(emp => emp.projects);
+const uniqueProjects = [...new Set(allProjects)];
+
+
+console.log("Total Unique Projects:", uniqueProjects.length);
+console.log("Projects List:", uniqueProjects);
+
+
+
+
 //  **T-042**: For each employee, find their department name and return an array of employee names with their department names.
+
+// plan . use map() to iterate over employees and find their department names
+const employeeDepartments = employees.map(employee => {
+    const department = departments.find(dept => dept.id === employee.departmentId);
+    return {
+        name: employee.name,
+        department: department ? department.name : "Unknown"
+    };
+});
+
+console.log(employeeDepartments);
+
 //  **T-043**: Get a list of names of employees earning more than 6000.
 //  **T-044**: Write a for-of loop to print the names of all employees from the employees array.
 //  **T-045**: Using a for-of loop, print the names of employees earning more than 5000.

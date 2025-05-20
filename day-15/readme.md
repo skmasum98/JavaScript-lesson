@@ -493,9 +493,71 @@ console.log(allSkills);
 
 
 ### **T-039**: Find the total salary of all employees working in the "Engineering" department.
+
+```js
+const engineeringTotalSalary = employees
+    .filter(employee => employee.departmentId === 2)
+    .reduce((acc, employee) => acc + employee.salary, 0);
+
+console.log(engineeringTotalSalary); // 19800
+```
+// Bob: 7000, Edward: 8000, Ian: 4800 = 19800
+
+it used filter() to get the employees in the Engineering department and then used reduce() to calculate the total salary.
+    
+
 ### **T-040**: Check if there is any department where all employees earn more than 5000.
+
+- This task requires checking if all employees in a department earn more than 5000. You can use the `every()` method to achieve this.
+
+```js
+const allDepartments = departments.map(department => {
+    const employeesInDepartment = employees.filter(employee => employee.departmentId === department.id);
+    const allEarnMoreThan5000 = employeesInDepartment.every(employee => employee.salary > 5000);
+    return {
+        departmentName: department.name,
+        allEarnMoreThan5000: allEarnMoreThan5000
+    };
+});
+console.log(allDepartments); 
+// [{ departmentName: "HR", allEarnMoreThan5000: true }, 
+// { departmentName: "Engineering", allEarnMoreThan5000: false }, 
+// { departmentName: "Marketing", allEarnMoreThan5000: false }, 
+// { departmentName: "Sales", allEarnMoreThan5000: true }]
+```
+
+
+
+
 ### **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
 Find the total number of unique projects being handled across all employees.
+
+```js
+    //step 1 : push all projects into a single array and then use Set to get unique values
+    // step 2 : use the length property to get the number of unique projects
+    // step 3 : use the spread operator to convert the Set back to an array
+
+const employeesWithProjects = [
+    { id: 1, name: "Alice", projects: ["Project A", "Project B"] },
+    { id: 2, name: "Bob", projects: ["Project C"] },
+    { id: 3, name: "Charlie", projects: ["Project A", "Project D"] },
+    { id: 4, name: "Diana", projects: ["Project E"] },
+    { id: 5, name: "Edward", projects: ["Project F", "Project G"] },
+    { id: 6, name: "Fiona", projects: ["Project H"] },
+    { id: 7, name: "George", projects: ["Project I", "Project J"] },
+    { id: 8, name: "Helen", projects: ["Project K"] },
+    { id: 9, name: "Ian", projects: ["Project L"] },
+    { id: 10, name: "Jane", projects: ["Project M"] },
+    ];
+
+const allProjects = employeesWithProjects.flatMap(emp => emp.projects);
+const uniqueProjects = [...new Set(allProjects)];
+
+
+console.log("Total Unique Projects:", uniqueProjects.length);
+console.log("Projects List:", uniqueProjects);
+
+```
 ### **T-042**: For each employee, find their department name and return an array of employee names with their department names.
 ### **T-043**: Get a list of names of employees earning more than 6000.
 ### **T-044**: Write a for-of loop to print the names of all employees from the employees array.
