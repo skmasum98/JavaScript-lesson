@@ -558,13 +558,98 @@ console.log("Total Unique Projects:", uniqueProjects.length);
 console.log("Projects List:", uniqueProjects);
 
 ```
+- Total Unique Projects: 13
+- Projects List: (13) ['Project A', 'Project B', 'Project C', 'Project D', 'Project E', 'Project F', 'Project G', 'Project H', 'Project I', 'Project J', 'Project K', 'Project L', 'Project M']
+
 ### **T-042**: For each employee, find their department name and return an array of employee names with their department names.
+
+```js
+// plan . use map() to iterate over employees and find their department names
+const employeeDepartments = employees.map(employee => {
+    const department = departments.find(dept => dept.id === employee.departmentId);
+    return {
+        name: employee.name,
+        department: department ? department.name : "Unknown"
+    };
+});
+
+console.log(employeeDepartments);
+```
+
+```js
+[
+   { name: "Alice", department: "HR" },
+   { name: "Bob", department: "Engineering" },
+   { name: "Charlie", department: "Marketing" },
+   { name: "Diana", department: "Sales" },
+   { name: "Edward", department: "Engineering" },
+   { name: "Fiona", department: "Marketing" },
+   { name: "George", department: "Sales" },
+   { name: "Helen", department: "HR" },
+   { name: "Ian", department: "Engineering" },
+   { name: "Jane", department: "Marketing" },
+ ]
+```
 ### **T-043**: Get a list of names of employees earning more than 6000.
+```js
+
+const highEarningEmployees = employees.filter(employee => employee.salary >= 6000).map(employee => employee.name);
+console.log(highEarningEmployees); 
+```
+[ 'Bob', 'Edward', 'Fiona', 'Helen' ]
+
+
+
 ### **T-044**: Write a for-of loop to print the names of all employees from the employees array.
+
+```js
+
+for (const employee of employees) {
+    console.log(employee.name);
+}
+```
+- Alice
+- Bob
+- Charlie
+- Diana
+- Edward
+- Fiona
+- George
+- Helen
+- Ian
+- Jane
+
 ### **T-045**: Using a for-of loop, print the names of employees earning more than 5000.
+```js
+for (const employee of employees) {
+    if (employee.salary > 5000) {
+        console.log(employee.name);
+    }
+}
+```
+
 ### **T-046**: Modify the for-of loop to destructure each employee object and log their name and salary.
+```js
+for (const employee of employees) {
+    const { name, salary } = employee;
+    console.log(`Name: ${name}, Salary: ${salary}`);
+}
+```
+
 ### **T-047**: Write a for-of loop to match employees with their departments and print the results.
+```js
+for (const employee of employees) {
+    const department = departments.find(dept => dept.id === employee.departmentId);
+    console.log(`Name: ${employee.name}, Department: ${department ? department.name : "Unknown"}`);
+}
+```
+
 ### **T-048**: Use Array.prototype.entries() with a for-of loop to print the index and name of each employee.
+```js
+for (const [index, employee] of employees.entries()) {
+    console.log(`Index: ${index}, Name: ${employee.name}`);
+}
+```
 
 ### **T-049**: Given the array-like object below, access the second element and log it:
 
