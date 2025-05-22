@@ -296,35 +296,106 @@ for (const employee of employees) {
 //  **T-046**: Modify the for-of loop to destructure each employee object and log their name and salary.
 for (const { name, salary } of employees) {
     console.log(`Name: ${name}, Salary: ${salary}`);
-}
+} 
+
 
 //  **T-047**: Write a for-of loop to match employees with their departments and print the results.
+
+console.log("Question 47");
+
 for (const employee of employees) {
     const department = departments.find(dept => dept.id === employee.departmentId);
     console.log(`Employee: ${employee.name}, Department: ${department ? department.name : "Unknown"}`);
 }
 
+// Employee: Alice, Department: HR
+// Employee: Bob, Department: Engineering
+// Employee: Charlie, Department: Marketing
+// Employee: Diana, Department: HR
+// Employee: Edward, Department: Engineering
+// Employee: Fiona, Department: Sales
+// Employee: George, Department: Marketing
+// Employee: Helen, Department: Sales
+// Employee: Ian, Department: Engineering
+// Employee: Jane, Department: HR
+
+
 //  **T-048**: Use Array.prototype.entries() with a for-of loop to print the index and name of each employee.
+console.log("Question 48");
+for (const [index, employee] of employees.entries()) {
+    console.log(`Index: ${index}, Employee: ${employee.name}`);
+}
 
 //  **T-049**: Given the array-like object below, access the second element and log it:
 
-//   ```js
-//   const arrayLike = { 0: "First", 1: "Second", length: 2 };
-//   ```
+console.log("Question 49");
+const arrayLike = { 0: "First", 1: "Second", length: 2 };
+console.log(arrayLike[1]); // Second
+
+
 
 //  **T-050**: Write a function that takes a variable number of arguments and converts the arguments object into a real array using Array.from.
+console.log("Question 50");
+
+function convertArgumentsToArray() {
+    return Array.from(arguments);
+}
+const argsArray = convertArgumentsToArray(1, 2, 3, 4, 5);
+console.log(argsArray); // [1, 2, 3, 4, 5]
+
+
+
 //  **T-051**: Write a snippet to select all div elements on a webpage (using document.querySelectorAll) and convert the resulting NodeList into an array.
+console.log("Question 51");
+const divElements = document.querySelectorAll("div");
+const divArray = Array.from(divElements);
+console.log(divArray);
+
 //  **T-052**: Merge these two arrays into a single array:
 
-//   ```js
-//   const arr1 = [1, 2];
-//   const arr2 = [3, 4];
-//   ```
+  console.log("Question 52");
+  
+  const arr01 = [1, 2];
+  const arr02 = [3, 4];
+    const mergedArray = arr01.concat(arr02);
+    console.log(mergedArray); // [1, 2, 3, 4]
+  
 
-//  **T-053**: Create an array of n duplicate values using Array.from. Input: Create an array with 5 "A" values. Output: ["A", "A", "A", "A", "A"]
+//  **T-053**: Create an array of n duplicate values using Array.from. 
+// Input: Create an array with 5 "A" values. Output: ["A", "A", "A", "A", "A"]
+console.log("Question 53");
+
+const n = 5;
+const duplicateArray = Array.from({ length: n }, () => "A");
+console.log(duplicateArray); // ["A", "A", "A", "A", "A"]
+
 //  **T-054**: Use Array.from to convert a string like "Hello" into an array of characters.
+
+console.log("Question 54");
+
+const str = "Hello";
+const charArray = Array.from(str);
+console.log(charArray); // [ 'H', 'e', 'l', 'l', 'o' ]
+
 //  **T-055**: For the array, ['apple', 'banana', 'apricot', 'mango', 'blueberry'], group words by their first letter using group().
+console.log("Question 55");
+const fruitsArr = ['apple', 'banana', 'apricot', 'mango', 'blueberry'];
+const groupedFruits = fruitsArr.group(fruit => fruit[0]);
+console.log(groupedFruits); 
+
+
+
 //  **T-057**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+
+const numbersArr = [3, 7, 3, 2, 3, 8, 7, 7];
+const mostRepeated = numbersArr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+}, {});
+const mostRepeatedNum = Object.keys(mostRepeated).reduce((a, b) => mostRepeated[a] > mostRepeated[b] ? a : b);
+console.log(mostRepeatedNum); // 3
+
+
 //  **T-058**: Find the median of [5, 2, 9, 1, 3, 6, 8].
 //  **T-059**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
 //  **T-060**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].

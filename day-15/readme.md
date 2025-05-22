@@ -640,43 +640,185 @@ for (const employee of employees) {
 ```js
 for (const employee of employees) {
     const department = departments.find(dept => dept.id === employee.departmentId);
-    console.log(`Name: ${employee.name}, Department: ${department ? department.name : "Unknown"}`);
+    console.log(`Employee: ${employee.name}, Department: ${department ? department.name : "Unknown"}`);
 }
+
+// Employee: Alice, Department: HR
+// Employee: Bob, Department: Engineering
+// Employee: Charlie, Department: Marketing
+// Employee: Diana, Department: HR
+// Employee: Edward, Department: Engineering
+// Employee: Fiona, Department: Sales
+// Employee: George, Department: Marketing
+// Employee: Helen, Department: Sales
+// Employee: Ian, Department: Engineering
+// Employee: Jane, Department: HR
+
 ```
 
 ### **T-048**: Use Array.prototype.entries() with a for-of loop to print the index and name of each employee.
 ```js
 for (const [index, employee] of employees.entries()) {
-    console.log(`Index: ${index}, Name: ${employee.name}`);
+    console.log(`Index: ${index}, Employee: ${employee.name}`);
 }
+
 ```
+- Index: 0, Employee: Alice
+- Index: 1, Employee: Bob
+- Index: 2, Employee: Charlie
+- Index: 3, Employee: Diana
+- Index: 4, Employee: Edward
+- Index: 5, Employee: Fiona
+- Index: 6, Employee: George
+- Index: 7, Employee: Helen
+- Index: 8, Employee: Ian
+- Index: 9, Employee: Jane
+
 
 ### **T-049**: Given the array-like object below, access the second element and log it:
 
   ```js
-  const arrayLike = { 0: "First", 1: "Second", length: 2 };
+    const arrayLike = { 0: "First", 1: "Second", length: 2 };
+    console.log(arrayLike[1]); // Second
   ```
+  - Second
 
 ### **T-050**: Write a function that takes a variable number of arguments and converts the arguments object into a real array using Array.from.
+
+```js
+
+function convertArgumentsToArray() {
+    return Array.from(arguments);
+}
+const argsArray = convertArgumentsToArray(1, 2, 3, 4, 5);
+console.log(argsArray); // [1, 2, 3, 4, 5]
+```
+
+
+
+
 ### **T-051**: Write a snippet to select all div elements on a webpage (using document.querySelectorAll) and convert the resulting NodeList into an array.
+
+```js
+const divElements = document.querySelectorAll("div");
+const divArray = Array.from(divElements);
+console.log(divArray);
+```
+
+- Answer to Question 51
+- index.js:352
+- Array(1)
+- 0: div#main
+- length: 1
 ### **T-052**: Merge these two arrays into a single array:
 
   ```js
-  const arr1 = [1, 2];
-  const arr2 = [3, 4];
+  const arr01 = [1, 2];
+  const arr02 = [3, 4];
+    const mergedArray = arr01.concat(arr02);
+    console.log(mergedArray); // [1, 2, 3, 4]
   ```
 
 ### **T-053**: Create an array of n duplicate values using Array.from. Input: Create an array with 5 "A" values. Output: ["A", "A", "A", "A", "A"]
+
+```js
+const n = 5;
+const duplicateArray = Array.from({ length: n }, () => "A");
+console.log(duplicateArray); // ["A", "A", "A", "A", "A"]
+```
 ### **T-054**: Use Array.from to convert a string like "Hello" into an array of characters.
+```js
+const str = "Hello";
+const charArray = Array.from(str);
+console.log(charArray); // ["H", "e", "l", "l", "o"]
+```
+
 ### **T-055**: For the array, ['apple', 'banana', 'apricot', 'mango', 'blueberry'], group words by their first letter using group().
+
+```js
+const fruits = ['apple', 'banana', 'apricot', 'mango', 'blueberry'];
+const groupedFruits = fruits.group(fruit => fruit[0]);
+console.log(groupedFruits); 
+```
+// Output:
+```js
+{
+  a: ['apple', 'apricot'],
+  b: ['banana', 'blueberry'],
+  m: ['mango']
+}
+```
 ### **T-057**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+
+```js
+const numbers = [3, 7, 3, 2, 3, 8, 7, 7];
+const mostRepeated = numbers.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+}, {});
+const mostRepeatedNumber = Object.keys(mostRepeated).reduce((a, b) => mostRepeated[a] > mostRepeated[b] ? a : b);
+console.log(mostRepeatedNumber); // 3
+```
+
 ### **T-058**: Find the median of [5, 2, 9, 1, 3, 6, 8].
+
+```js
+const numbers = [5, 2, 9, 1, 3, 6, 8];
+const sortedNumbers = numbers.sort((a, b) => a - b);
+const mid = Math.floor(sortedNumbers.length / 2);
+const median = sortedNumbers.length % 2 !== 0 ? sortedNumbers[mid] : (sortedNumbers[mid - 1] + sortedNumbers[mid]) / 2;
+console.log(median); // 5
+```
+
 ### **T-059**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
+```js
+const array = [['a', 1], ['b', 2], ['c', 3]];
+const object = Object.fromEntries(array);
+console.log(object); // { a: 1, b: 2, c: 3 }
+```
+
+
 ### **T-060**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
+
+```js
+const array = [['a', 'b'], ['c', 'd']];
+const flattenedUppercase = array.flatMap(subArray => subArray.map(letter => letter.toUpperCase()));
+console.log(flattenedUppercase); // ['A', 'B', 'C', 'D']
+```
+
 ### **T-061**: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
+```js
+const fruits = ['apple', 'banana', 'apple', 'mango', 'banana', 'banana'];
+const fruitCount = fruits.reduce((acc, fruit) => {
+    acc[fruit] = (acc[fruit] || 0) + 1;
+    return acc;
+}, {});
+console.log(fruitCount); // { apple: 2, banana: 4, mango: 1 }
+```
+
 ### **T-062**: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
+```js
+const array = ['a', 'b', 'c', 'd', 'e'];
+const slicedArray = array.slice(1, 4);
+console.log(slicedArray); // ['b', 'c', 'd']
+```
+
 ### **T-063**: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
+```js
+const array = [9, 3, 1, 6, 8];
+const sortedArray = array.toSorted((a, b) => a - b);
+console.log(sortedArray); // [1, 3, 6, 8, 9]
+```
+
 ### **T-064**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
+```js
+const array = [1, 2, 3, 4, 5];
+const reversedArray = array.toReversed();
+const originalArray = [...array].reverse();
+console.log(reversedArray); // [5, 4, 3, 2, 1]
+console.log(originalArray); // [5, 4, 3, 2, 1]
+```
+- The `toReversed()` method returns a new array with the elements in reverse order, while `reverse()` modifies the original array in place. In this case, both methods produce the same output, but `toReversed()` does not change the original array.
 ### **T-065**: Group the follwing array elements based on age(Adult vs Non-Adult):
 
 ```js
@@ -685,7 +827,35 @@ const users = [
   { name: 'Bob', age: 3 },
   { name: 'Charlie', age: 25 },
 ];
+const groupedUsers = users.group(user => (user.age >= 18 ? 'Adult' : 'Non-Adult'));
+console.log(groupedUsers); 
+```
+```js
+{
+  Adult: [
+    { name: 'Alice', age: 55 },
+    { name: 'Charlie', age: 25 }
+  ],
+  Non-Adult: [
+    { name: 'Bob', age: 3 }
+  ]
+}
 ```
 
+
 ### **T-066**: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
+```js
+const sentence = "40 Days of JavaScript by tapaScript is a powerful initiative";
+const longestWord = sentence.split(' ').reduce((longest, word) => {
+    return word.length > longest.length ? word : longest;
+}, '');
+console.log(longestWord); // "JavaScript"
+```
+- The longest word in the sentence is "JavaScript".
 ### **T-067**: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
+```js
+const array1 = [1, 2, 3, 4];
+const array2 = [3, 4, 5, 6];
+const commonElements = array1.filter(value => array2.includes(value));
+console.log(commonElements); // [3, 4]
+```
