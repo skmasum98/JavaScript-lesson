@@ -1,6 +1,31 @@
-console.log("Expense Tracker");
+Create a createExpenseTracker() function that takes a username and an initial budget to expose the following functioanlities:
+
+Adding Expense
+Removing Expense
+Updating Expense
+Getting total expenses done by the user
+Getting expense by category
+Get the Highest Expense
+Get the Lowest Expense
+Get the user info
+Show all the expenses
+Update User data
+Please make use of the factory function, closure to keep data private and return only the required features/methods.
+
+Sample User Data Structure
+    user: {
+        name: "Tapas",
+        budget: 5000,
+    },
+Sample Expense Data Structure
+    expenses: [
+        { id: 1, amount: 200, category: "Food", description: "Lunch" },
+        { id: 2, amount: 500, category: "Shopping", description: "New Shoes" },
+    ],
 
 
+
+```js
 function createExpenseTracker(username, initialBudget) {
     //private data
     let user = {
@@ -82,37 +107,20 @@ const tracker = createExpenseTracker("Tapas", 5000);
 tracker.addExpense(200, "Food", "Lunch");
 tracker.addExpense(500, "Shopping", "New Shoes");
 console.log(tracker.getTotalExpenses()); // 700
-
-console.log("Expenses by Category:");
-
-const foodExpenses = tracker.getExpensesByCategory("Food");
-console.log(foodExpenses); // [{ id: 1, amount: 200, category: "Food", description: "Lunch" }]
-console.log("Get Highest and Lowest Expenses:");
-
+console.log(tracker.getExpensesByCategory("Food")); // [{ id: 1, amount: 200, category: "Food", description: "Lunch" }]
 console.log(tracker.getHighestExpense()); // { id: 2, amount: 500, category: "Shopping", description: "New Shoes" }
 console.log(tracker.getLowestExpense()); // { id: 1, amount: 200, category: "Food", description: "Lunch" }
-
-console.log("User Info:");
 console.log(tracker.getUserInfo()); // { name: "Tapas", budget: 5000 }
-
-console.log("All Expenses:");
 console.log(tracker.showAllExpenses()); // [{ id: 1, amount: 200, category: "Food", description: "Lunch" }, { id: 2, amount: 500, category: "Shopping", description: "New Shoes" }]
-
-console.log("Updating User Data:");
-
 tracker.updateUserData("Tapas Kumar", 6000);
 console.log(tracker.getUserInfo()); // { name: "Tapas Kumar", budget: 6000 }
-console.log("removeExpense(1)");
 
-tracker.removeExpense(1);
-console.log(tracker.showAllExpenses()); // [{ id: 2, amount: 500, category: "Shopping", description: "New Shoes" }]
-
-console.log(`Updating Expense: 2, 600, "Shopping", "New Shoes Updated"`);
-tracker.updateExpense(2, 600, "Shopping", "New Shoes Updated");
-console.log(tracker.showAllExpenses()); // [{ id: 2, amount: 600, category: "Shopping", description: "New Shoes Updated" }]
-
-console.log("Adding another expense: 700, Food, Dinner");
-tracker.addExpense(700, "Food", "Dinner");
-console.log(tracker.showAllExpenses()); 
-
-console.log("Total Expense: " + tracker.getTotalExpenses()); // 900
+// tracker.removeExpense(1);
+// console.log(tracker.showAllExpenses()); // [{ id: 2, amount: 500, category: "Shopping", description: "New Shoes" }]
+// tracker.updateExpense(2, 600, "Shopping", "New Shoes Updated");
+// console.log(tracker.showAllExpenses()); // [{ id: 2, amount: 600, category: "Shopping", description: "New Shoes Updated" }]
+// tracker.addExpense(300, "Food", "Dinner");
+// console.log(tracker.getTotalExpenses()); // 900
+// tracker.updateUserData("Tapas Kumar", 7000);
+// console.log(tracker.getUserInfo()); // { name: "Tapas Kumar", budget: 7000 }
+```
