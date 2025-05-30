@@ -13,15 +13,20 @@ Update User data
 Please make use of the factory function, closure to keep data private and return only the required features/methods.
 
 Sample User Data Structure
+```js
     user: {
         name: "Tapas",
         budget: 5000,
     },
+```
 Sample Expense Data Structure
+
+```js
     expenses: [
         { id: 1, amount: 200, category: "Food", description: "Lunch" },
         { id: 2, amount: 500, category: "Shopping", description: "New Shoes" },
     ],
+```
 
 
 
