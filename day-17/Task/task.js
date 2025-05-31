@@ -3,27 +3,29 @@ const textElem = document.getElementById("text");
 console.log("textElem", textElem);
 
 // Convert the text into an array of words
-const words = textElem.innerText.split(" ");
+const words = textElem.innerText.toLowerCase().split(" ");
 console.log("words", words);
 
 // Find the Most Frequent Word
-function mostFrequentWord(words) {
-    const wordCount = words.reduce((acc, word) => {
-        acc[word] = (acc[word] || 0) + 1;
-        return acc;
-    }, {});
 
-    const sortedWords = Object.entries(wordCount).sort((a, b) => b[1] - a[1]);
-    const mostFrequent = sortedWords[0];
 
-    const resultElem = document.getElementById("result");
-    resultElem.innerHTML = `Most Frequent Word: ${mostFrequent[0]} (Count: ${mostFrequent[1]})`;
-
-    return mostFrequent[0];
+const findMostFrequentWord =  {} ;
+words.forEach((word) => {
+findMostFrequentWord[word] = (findMostFrequentWord[word] || 0) + 1;
 }
+);
 
-const mostWord = mostFrequentWord(words);
-console.log("Most Frequent Word:", mostWord);
-console.log();
+let mostFrequentWord = "";
+let maxCount = 0;
 
+for (const [word, count] of Object.entries(findMostFrequentWord)) {
+    if (count > maxCount) {
+        maxCount = count;
+        mostFrequentWord = word;
+    }
+}
+console.log("Most Frequent Word:", mostFrequentWord);
 
+// Display the Most Frequent Word
+const resultElem = document.getElementById("result");
+resultElem.innerText = "Most Frequent Word: " + mostFrequentWord + " (Count: " + maxCount + ")";
