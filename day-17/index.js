@@ -38,4 +38,18 @@ function highlightText() {
     });
 }
 
-highlightText();
+
+
+// Function to filter list items based on input
+function filterList() {
+    const inputElem = document.getElementById("searchInput");
+    const input = inputElem.value;
+
+    const items = document.querySelectorAll("ul#itemList li");
+
+    items.forEach((item) => {
+         item.style.display = item.innerText.toLowerCase().includes(input.toLowerCase()) ? "block" : "none";
+        
+    });
+
+}
