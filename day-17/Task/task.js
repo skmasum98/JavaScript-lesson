@@ -47,5 +47,31 @@ zebraElem.forEach((item, index) => {
     }   
 });
 
+// 4. Find and Replace Text Inside a Page</h3>
+// Write a script that finds all occurrences of a word inside a <p> tag and replaces them with another word dynamically.
 
+// <p id="textToReplace">This is a sample text. This text is for testing purposes.</p>
+//         <input type="text" id="findWord" placeholder="Word to find">
+//         find word from paragraph and highlight it with a different color
+//         <button id="findButton">Find</button>
 
+//         <input type="text" id="replaceWord" placeholder="Word to replace">
+//         <button id="replaceButton">Replace</button>
+//         <p id="resultText"></p>
+
+function findAndReplace() {
+        const findWord = document.getElementById("findWord").value.trim();
+        const replaceWord = document.getElementById("replaceWord").value.trim();
+        const textElement = document.getElementById("textToReplace");
+
+        if (findWord === "") {
+            alert("Please enter a word to find.");
+            return;
+        }
+
+        // Create a case-insensitive global RegExp
+        const regex = new RegExp(findWord, "gi");
+
+        // Replace text
+        textElement.innerHTML = textElement.innerHTML.replace(regex, replaceWord);
+    }
