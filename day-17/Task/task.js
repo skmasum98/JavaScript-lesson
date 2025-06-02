@@ -60,18 +60,36 @@ zebraElem.forEach((item, index) => {
 //         <p id="resultText"></p>
 
 function findAndReplace() {
-        const findWord = document.getElementById("findWord").value.trim();
-        const replaceWord = document.getElementById("replaceWord").value.trim();
-        const textElement = document.getElementById("textToReplace");
+      const findWord = document.getElementById("findWord").value.trim();
+      const replaceWord = document.getElementById("replaceWord").value.trim();
+      
+      if (!findWord) {
+        alert("Please enter a word to find.");
+        return;
+      }
 
-        if (findWord === "") {
-            alert("Please enter a word to find.");
-            return;
+      const paragraphs = document.querySelectorAll("p");
+      const regex = new RegExp(findWord, "gi");
+
+      paragraphs.forEach(p => {
+        p.innerHTML = p.innerHTML.replace(regex, replaceWord);
+      });
+    }
+
+
+    // Extract and Count Unique Links from a Page
+// Count all the unique hyperlinks (<a>) in a page and display their count.
+
+    function countUniqueLinks() {
+      const allLinks = document.querySelectorAll("a");
+      const linkSet = new Set();
+
+      allLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href) {
+          linkSet.add(href);
         }
+      });
 
-        // Create a case-insensitive global RegExp
-        const regex = new RegExp(findWord, "gi");
-
-        // Replace text
-        textElement.innerHTML = textElement.innerHTML.replace(regex, replaceWord);
+      document.getElementById("count").innerText = linkSet.size;
     }

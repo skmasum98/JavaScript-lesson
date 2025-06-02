@@ -7,8 +7,12 @@
     <script defer src="task.js"></script>
 </head>
 <body>
-    <div id="text">This is a test. This test is only a test, this not god</div>
+    <div>
+        <h2>1. Find Most Frequent Word</h2>
+        <hr>
+        <div id="text">This is a test. This test is only a test, this not god</div>
     <div id="result" mostFrequentWord()></div>
+    </div>
 
 
     <hr>
@@ -38,16 +42,47 @@
         </ul>
     </div>
     <hr>
-
+<!-- 4. Find and Replace Text Inside a Page -->
     <h3>4. Find and Replace Text Inside a Page</h3>
-    <p>`Write a script that finds all occurrences of a word inside a <p> tag and replaces them with another word dynamically.`</p>
-<div>
-    <p id="textToReplace">This is a sample text. This text is for testing purposes.</p>
+    <p>Write a script that finds all occurrences of a word inside a p tag and replaces them with another word dynamically</p>
 
-    <input type="text" id="findWord" placeholder="Word to find">
-    <input type="text" id="replaceWord" placeholder="Word to replace">
-    <button onclick="findAndReplace()">Replace</button>
-</div>
+<hr> 
+<div>
+  <label> Find Word:</label>
+  <input type="text" id="findWord" placeholder="Example: apple">
     
+
+  <label>Replace Word:</label>
+  <input type="text" id="replaceWord" placeholder="Example: orange">
+
+  <button onclick="findAndReplace()">Replace</button>
+
+  <hr>
+
+  <p>This is a simple paragraph with the word apple in it.</p>
+  <p>Another apple is on the table. Apples are tasty.</p>
+  <p>No fruit mentioned here.</p>
+
+</div>
+    <hr>
+<!-- Question 5 -->
+
+<div>
+    <h3>5. Unique Link Counter</h3>
+    <hr>
+  <a href="https://example.com">Example</a><br>
+  <a href="https://google.com">Google</a><br>
+  <a href="https://example.com">Example Again</a><br>
+  <a href="https://openai.com">OpenAI</a><br>
+  <a href="https://google.com">Google Again</a><br>
+    <a href="https://tapascript.com">TapaScript</a><br>
+
+  <br>
+  <button onclick="countUniqueLinks()">Count Unique Links</button>
+
+  <p>Total unique links found: <span id="count">0</span></p>
+</div>
+
+
 </body>
 </html>
