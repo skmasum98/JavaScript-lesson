@@ -53,3 +53,43 @@ document.body.insertBefore(div, null);
    //document.getElementById("removeMe").remove(); // সরাসরি মুছে ফেলা
 
 }
+
+
+// // Read, Write, Remove Attributes
+// {
+//     const imgElm = document.querySelector("img")
+//     // Read attribute
+//     // console.log(imgElm.getAttribute("src")); // Read src attribute
+//     // console.log(imgElm.src); // Read src attribute using property
+
+//     // Write attribute
+    
+
+//     imgElm.setAttribute("src", "images.png"); // Change src attribute
+
+//     // Remove attribute
+//     imgElm.removeAttribute("height"); // Remove height attribute
+
+// }
+
+const imgElm = document.querySelector("img");
+const removeHeightBtn = document.getElementById("removeHeight");
+
+removeHeightBtn.addEventListener("click", () => {
+    imgElm.removeAttribute("height"); // Remove height attribute
+    console.log("Height attribute removed");
+});
+
+// remove width btn
+const removeWidthBtn = document.getElementById("removeWidth");
+
+removeWidthBtn.addEventListener("click",  () => {
+    imgElm.removeAttribute("width");
+});
+
+// Change image
+function changeImgSrc() {
+    const imageElement = document.getElementById("changeImgSrc")
+    imageElement.setAttribute("src", "images.png")
+    
+}
