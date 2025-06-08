@@ -18,14 +18,14 @@ const pElement = document.querySelector("p");
 document.body.insertBefore(span, pElement);
 
 // insert after
-const h2 = document.createElement("h2");
-h2.innerText = "আমি একটি h2";
-document.body.insertBefore(h2, pElement.nextElementSibling);
+// const h2 = document.createElement("h2");
+// h2.innerText = "আমি একটি h2";
+// document.body.insertBefore(h2, pElement.nextElementSibling);
 
-// insert at the end
-const div = document.createElement("div");
-div.innerText = "আমি একটি div";
-document.body.insertBefore(div, null);
+// // insert at the end
+// const div = document.createElement("div");
+// div.innerText = "আমি একটি div";
+// document.body.insertBefore(div, null);
 
 
 // modify content
