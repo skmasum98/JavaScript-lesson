@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prpject Toggle</title>
+
+    <style>
+        .info {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        }
+        .action {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Toggle Paragraph Example</h2>
+    <button onclick="toggleInfo()" class="action" id="toggleBtn">Show/Hide Paragraph</button>
+    <p class="info" id="myParagraph">This is a paragraph that can be shown or hidden by clicking the button above.</p>
+
+    <script>
+        function toggleInfo (){
+            console.log("toggoling");
+
+            const para = document.getElementById("myParagraph");
+            para.classList.toggle("hidden")
+            
+        }
+    </script>
+
+</body>
+</html>

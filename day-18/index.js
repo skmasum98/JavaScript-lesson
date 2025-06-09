@@ -3,9 +3,9 @@ console.log("Day 18: Dom Manipulation");
 // Createing a new  element
 const pElem = document.createElement("p");
 
-pElem.innerText = "This is a paragraph created using JavaScript.";
-document.body.appendChild(pElem);
-console.log(pElem);
+// pElem.innerText = "This is a paragraph created using JavaScript.";
+// document.body.appendChild(pElem);
+// console.log(pElem);
 
 
 // insert element
@@ -93,3 +93,21 @@ function changeImgSrc() {
     imageElement.setAttribute("src", "images.png")
     
 }
+
+//style
+const bgElem = document.getElementById("bg")
+console.log(bgElem);
+
+const colorChangeBtn = document.getElementById("changeBgBtn")
+colorChangeBtn.addEventListener("click", () => {
+    bgElem.style.backgroundColor = 'red'
+})
+
+
+// manupulating class
+const classElem = document.getElementById("bgClass")
+const classBtn = document.getElementById("changeClassBtn")
+
+classBtn.addEventListener("click", () =>{
+    classElem.className= "seconderyClass"
+})
