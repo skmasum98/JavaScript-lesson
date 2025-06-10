@@ -42,3 +42,27 @@ document.getElementById("grandparent").addEventListener("click", () => {
     console.log("Capture Grandparent Clicked");
     
 },true)
+
+// evend deligation
+
+// Event Delegation - it is a technique where you add a single event listener to a parent element instead of each child. It uses event bubbling to handle events from dynamically added or existing child elements.
+
+// Efficient for handling events on lists, tables, or any repeated/dynamic content.
+
+document.getElementById("itemList").addEventListener("click", (event) => {
+    if (event.target.tagName === "LI") {
+        console.log(`you click on   ${event.target.innerText}`);
+    }
+})
+
+
+// event.stopPropagation() - event.stopPropagation() is a method used inside an event handler to stop the event from bubbling up (or propagating further) through the DOM tree
+
+document.getElementById("father").addEventListener("click", () => {
+    console.log("Parent clicked");
+});
+
+document.getElementById("son").addEventListener("click", (e) => {
+    e.stopPropagation();
+    console.log("Child clicked");
+});
