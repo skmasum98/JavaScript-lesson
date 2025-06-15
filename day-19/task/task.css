@@ -1,0 +1,27 @@
+.tab.active {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px; 
+  margin: 10px 0;
+  border-radius: 5px;
+
+}
+
+.tab {
+  background-color: #f9c4c4;
+  border: 1px solid #ddd;
+  padding: 5px; 
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+
+.content {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.content.active {
+  display: block;
+}
