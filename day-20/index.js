@@ -89,3 +89,13 @@ addItems(100); // ১০০০টা ডিভ দ্রুত যোগ
 const target = document.getElementById('watchMe');
 
 const Observer = new MutationObserver((mutationsList, observer) => {
+   for (const mutation of mutationsList) {
+    console.log(`Mutation type: ${mutation.type}`);
+
+    if (mutation.type === 'childList') {
+      console.log('A child node has been added or removed.');
+    } else if (mutation.type === 'attributes') {
+      console.log(`The ${mutation.attributeName} attribute was modified.`);
+    }
+   }
+});
