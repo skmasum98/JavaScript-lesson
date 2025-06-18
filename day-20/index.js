@@ -36,6 +36,56 @@ range.setStart(para.firstChild, 6);
 range.setEnd(para.childNodes[2], 4);
 
 const selection = range.cloneContents();
-
 console.log(selection);
 
+// shadow DOM
+ document.querySelector(".card").innerHTML
+
+ // Shadow host 
+const shadowHost = document.querySelector('#box');
+const shadow = shadowHost.attachShadow({ mode: 'open' });
+shadow.innerHTML = `
+  <style>
+    p {
+      color: blue;
+      font-size: 20px;
+    }
+  </style>
+  <p>This is a shadow DOM paragraph.</p>
+`;
+
+
+// Advance class manipulation
+
+const btn = document.querySelector('.btn');
+btn.classList.add('active');
+btn.classList.remove('active');
+btn.classList.toggle('active'); // Toggles the 'active' class
+btn.classList.contains('active'); // Checks if 'active' class is present
+btn.classList.replace('active', 'inactive'); // Replaces 'active' with 'inactive'
+
+// handlling large scale dom update
+
+function addItems(count) {
+  const frag = document.createDocumentFragment();
+
+  for (let i = 0; i < count; i++) {
+    const div = document.createElement('div');
+    div.textContent = `Item ${i}`;
+    frag.appendChild(div); // DOM-এ নয়, fragment-এ রাখছি
+  }
+
+  document.body.appendChild(frag); // শেষে একবারে DOM-এ যুক্ত
+}
+
+addItems(100); // ১০০০টা ডিভ দ্রুত যোগ
+
+
+// mutation observer
+
+// const observer = new MutationObserver(callback);
+  // observer.observe(targetNode, config);
+
+const target = document.getElementById('watchMe');
+
+const Observer = new MutationObserver((mutationsList, observer) => {
