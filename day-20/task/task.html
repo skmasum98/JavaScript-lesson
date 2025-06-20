@@ -6,34 +6,45 @@
     <title>Document</title>
     <script defer src="task.js"></script>
     <style>
-        /* Highlight the active navigation item */
-        #nav li.active {
-        background-color: #007bff;
-        color: #fff;
-        font-weight: bold;
-        border-radius: 4px;
+        .question {
+            border: #007bff;
+            border: 1px solid;
+            padding: 40px;
+            text-align: center;
+        }
+        .nav-menu li {
+            display: inline-block;
+            padding: 10px 15px;
+            cursor: pointer;
         }
 
-       
-        #nav li {
-        display: inline-block;
-        padding: 8px 16px;
-        cursor: pointer;
-        transition: background 0.2s, color
+        .nav-menu li.active {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
         }
     </style>
+
 </head>
 <body>
     <h1>Day 20 - DOM Advanced Task</h1>
-    <h2>1. Traverse and Toggle Classes</h2>
+    <div class="question">
+        <h2>1. Traverse and Toggle Classes</h2>
 
-    <ul id="nav">
-        <li class="active">Home</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Services</li>
-        <li>Blog</li>
-    </ul>
+        <ul class="nav-menu">
+            <li class="active">Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <h2>Highlight Text Using Range</h2>
+        <p id="para">My son Mehmed reads on class one</p>
+    </div>
+
+
 
 
 </body>
