@@ -28,3 +28,30 @@ mark.style.backgroundColor = 'yellow';
 mark.appendChild(content);
 range.insertNode(mark);
 
+
+
+// question 3. Use DocumentFragment for Performance
+// Insert 100 list items into the DOM using:
+
+const listElem = document.getElementById("item-list");
+
+  for (let i = 0; i <= 100; i++) {
+    const liElem = document.createElement("li");
+    liElem.textContent = `Item ${i}`;
+   
+    listElem.appendChild(liElem); // inserted one by one into DOM
+  }
+
+  //DocumentFragment (all at once)
+
+  const listElemFr = document.getElementById("item-list");
+  const fragment = document.createDocumentFragment(); // Create the fragment
+
+  for (let i = 0; i <= 100; i++) {
+    const liElem = document.createElement("li");
+    liElem.textContent = `Item ${i}`;
+    liElem.style.textDecoration = "none";
+    fragment.appendChild(liElem); // Append to fragment, not DOM
+  }
+
+  listElemFr.appendChild(fragment); // Append all at once to DOM
