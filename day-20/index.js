@@ -65,7 +65,7 @@ btn.classList.contains('active'); // Checks if 'active' class is present
 btn.classList.replace('active', 'inactive'); // Replaces 'active' with 'inactive'
 
 // handlling large scale dom update
-
+const frElem = document.getElementById('fr-item')
 function addItems(count) {
   const frag = document.createDocumentFragment();
 
@@ -75,7 +75,7 @@ function addItems(count) {
     frag.appendChild(div); // DOM-এ নয়, fragment-এ রাখছি
   }
 
-  document.body.appendChild(frag); // শেষে একবারে DOM-এ যুক্ত
+  frElem.appendChild(frag); // শেষে একবারে DOM-এ যুক্ত
 }
 
 addItems(100); // ১০০০টা ডিভ দ্রুত যোগ

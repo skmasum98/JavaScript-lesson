@@ -10,7 +10,7 @@
             border: #007bff;
             border: 1px solid;
             padding: 40px;
-            text-align: center;
+            text-align: left;
         }
         .nav-menu li {
             display: inline-block;
@@ -23,6 +23,33 @@
             color: white;
             border-radius: 5px;
         }
+
+        .container {
+      margin: 20px;
+    }
+    .box {
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #4CAF50;
+      background-color: #eaffea;
+    }
+    .controls {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-right: 10px;
+    }
+
+    /* 5 */
+    #watched {
+      padding: 10px;
+      border: 2px solid #444;
+      margin-bottom: 10px;
+    }
+    .highlight {
+        border: 2px solid #96156f;
+        color: #96156f;
+    }
     </style>
 
 </head>
@@ -38,24 +65,60 @@
             <li>Contact</li>
         </ul>
     </div>
-
+<hr>
     <div class="question">
         <h2>Highlight Text Using Range</h2>
         <p id="para">My son Mehmed reads on class one</p>
     </div>
-
+<hr>
     <div class="question">
         <h2>Use DocumentFragment for Performance </h2> 
         <p>Insert 100 list items into the DOM using:</p>
         <ul style="list-style: none;" id="item-list"></ul>
-
+<hr>
         <br>
         <div>
             <h2>DocumentFragment (all at once)</h2>
-        <ul id="item-list"></ul>
+        <ul style="list-style: none;" id="ul-item"></ul>
         </div>
     </div>
+<hr>
 
+<div class="question">
+    <h2>4. Build a “Smart Cloner”</h2>
+    <p>Create a UI with an element and a “Clone” button. Use cloneNode(true) and cloneNode(false) and show the difference visually.</p>
+    <div class="container">
+        <div class="controls">
+            <button id="clone-true">Clone (true)</button>
+            <button id="clone-false">Clone (false)</button>
+            
+        </div>
+
+        <div id="original" class="box">
+            <h2>Original Box</h2>
+            <p>This paragraph is inside the box.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi similique sed dolor molestiae eaque repellendus commodi suscipit, sequi laudantium eius officiis ullam omnis, veniam ex consequatur labore voluptatem mollitia. Corrupti.</p>
+        </div>
+
+        <h3>Clones:</h3>
+        <div id="clones"></div>
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="question">
+    <h2>MutationObserver Watcher</h2>
+
+    <div id="watched" class="box">
+    Hello, I am being watched!
+    </div>
+
+    <button onclick="addChild()">Add Child</button>
+    <button onclick="changeClass()">Change Class</button>
+    <button onclick="changeText()">Change Text</button>
+
+</div>
 
 
 </body>
