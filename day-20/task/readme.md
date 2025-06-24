@@ -83,7 +83,7 @@ const listElem = document.getElementById("item-list");
 
 ```
 
-###4. Build a “Smart Cloner”
+### 4. Build a “Smart Cloner”
 
 ```html
     <p>Create a UI with an element and a “Clone” button. Use cloneNode(true) and cloneNode(false) and show the difference visually.</p>
