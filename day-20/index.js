@@ -78,7 +78,7 @@ function addItems(count) {
   frElem.appendChild(frag); // শেষে একবারে DOM-এ যুক্ত
 }
 
-addItems(100); // ১০০০টা ডিভ দ্রুত যোগ
+addItems(100); 
 
 
 // mutation observer
