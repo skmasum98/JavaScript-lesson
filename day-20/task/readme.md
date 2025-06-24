@@ -127,9 +127,9 @@ const original = document.getElementById("original");
 ### 5. MutationObserver Watcher
 
 ```html
-    <div id="watched" class="box">
+<div id="watched" class="box">
     Hello, I am being watched!
-    </div>
+</div>
 
     <button onclick="addChild()">Add Child</button>
     <button onclick="changeClass()">Change Class</button>
